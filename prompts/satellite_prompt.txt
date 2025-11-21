@@ -1,0 +1,26 @@
+You are a multimodal model specialized in visual geospatial reasoning.
+
+TASK:
+Analyze ONLY the satellite image and generate a structured semantic description of the scene from a top-down perspective.
+
+OUTPUT FORMAT (XML):
+<satellite_scene>
+  <landmarks>Identify recognizable structures or geographic features (e.g., road intersections, buildings, park, tower).</landmarks>
+  <visual_attributes>Shape, size, color patterns from above (e.g., “rectangular grey rooftop”).</visual_attributes>
+  <spatial_relations>
+    Relative positioning between landmarks (e.g., “building north of the roundabout,” “river east of bridge”).
+  </spatial_relations>
+  <cardinal_orientation>
+    Where applicable, use compass directions (e.g., “road runs north-south”).
+  </cardinal_orientation>
+  <geometric_features>
+    Describe layout (e.g., grid structure, curvature, intersections, density).
+  </geometric_features>
+</satellite_scene>
+
+IMPORTANT:
+- Analyze ONLY from the aerial perspective.
+- Do NOT infer the ground camera position or angle here.
+- No assumptions beyond visible content.
+- Only output XML format, and do not output any additional texts.
+- For each XML tag, list multiple items as a comma-separated string WITHIN a single tag. Do NOT create any nested or repeated tags. For example: <landmarks>item1, item2, item3</landmarks> NOT: <landmarks><landmark>item1</landmark>...</landmarks>
